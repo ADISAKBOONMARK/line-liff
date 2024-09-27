@@ -8,11 +8,26 @@
     <p id="p1">Hello World!</p>
     <script src="https://static.line-scdn.net/liff/edge/2.1/liff.js"></script>
     <script>
-      const liffId = "2006393396-EY8qwKBe";
-      liff.init({ liffId });
-      liff.ready.then(() => {
-        document.getElementById("p1").innerHTML = JSON.stringify(liff);
-      });
+      liff
+        .init({
+          liffId: "2006393396-EY8qwKBe",
+          withLoginOnExternalBrowser: true, // Enable automatic login process
+        })
+        .then(() => {
+          document.getElementById("p1").innerHTML = JSON.stringify(liff);
+
+          liff
+            .getProfile()
+            .then((profile) => {
+              document.getElementById("p1").innerHTML = JSON.stringify(profile);
+            })
+            .catch((err) => {
+              document.getElementById("p1").innerHTML = JSON.stringify(err);
+            });
+        })
+        .catch((err) => {
+          document.getElementById("p1").innerHTML = JSON.stringify(err);
+        });
     </script>
   </body>
 </html>
