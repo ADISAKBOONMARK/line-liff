@@ -5,23 +5,13 @@
     <title>My LIFF App</title>
   </head>
   <body>
-    <p id="scanCode"></p>
-    <p>
-      <button id="btnScanCode" onclick="scanCode();">Scan Code</button>
-    </p>
+    <p id="p1">Hello World!</p>
     <script src="https://static.line-scdn.net/liff/edge/2.1/liff.js"></script>
     <script>
-      function scanCode() {
-        // liff.getIDToken().then((profile) =>{
-        alert(55555);
-        // });
-        // console.log(liff.getIDToken())
-      }
-
       const liffId = "2006393396-EY8qwKBe";
       liff.init({ liffId });
       liff.ready.then(() => {
-        alert(JSON.stringify(liff));
+        document.getElementById("p1").innerHTML = JSON.stringify(liff);
       });
     </script>
   </body>
