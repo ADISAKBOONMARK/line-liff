@@ -13,15 +13,16 @@
     <script>
       function scanCode() {
         // liff.getIDToken().then((profile) =>{
-          alert(liff.getIDToken());
+        alert(55555);
         // });
         // console.log(liff.getIDToken())
       }
-      liff.init(
-        { liffId: "2006393396-EY8qwKBe" },
-        () => {},
-        (err) => console.error(err.code, error.message)
-      );
+
+      const liffId = "2006393396-EY8qwKBe";
+      liff.init({ liffId });
+      liff.ready.then(() => {
+        alert(JSON.stringify(liff));
+      });
     </script>
   </body>
 </html>
