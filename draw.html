@@ -16,13 +16,26 @@
         .then(() => {
           document.getElementById("p1").innerHTML = JSON.stringify(liff);
 
+          //   liff
+          //     .getProfile()
+          //     .then((profile) => {
+          //       document.getElementById("p1").innerHTML = JSON.stringify(profile);
+          //     })
+          //     .catch((err) => {
+          //       document.getElementById("p1").innerHTML = JSON.stringify(err);
+          //     });
           liff
-            .getProfile()
-            .then((profile) => {
-              document.getElementById("p1").innerHTML = JSON.stringify(profile);
+            .sendMessages([
+              {
+                type: "text",
+                text: "Hello, World!",
+              },
+            ])
+            .then(() => {
+              console.log("message sent");
             })
             .catch((err) => {
-              document.getElementById("p1").innerHTML = JSON.stringify(err);
+              console.log("error", err);
             });
         })
         .catch((err) => {
