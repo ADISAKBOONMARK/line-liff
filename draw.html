@@ -32,10 +32,10 @@
               },
             ])
             .then(() => {
-              console.log("message sent");
+              document.getElementById("p1").innerHTML = JSON.stringify("message sent");
             })
             .catch((err) => {
-              console.log("error", err);
+                document.getElementById("p1").innerHTML = JSON.stringify(err);
             });
         })
         .catch((err) => {
