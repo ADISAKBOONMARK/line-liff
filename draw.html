@@ -16,27 +16,34 @@
         .then(() => {
           document.getElementById("p1").innerHTML = JSON.stringify(liff);
 
-          //   liff
-          //     .getProfile()
-          //     .then((profile) => {
-          //       document.getElementById("p1").innerHTML = JSON.stringify(profile);
-          //     })
-          //     .catch((err) => {
-          //       document.getElementById("p1").innerHTML = JSON.stringify(err);
-          //     });
-          liff
-            .sendMessages([
-              {
-                type: "text",
-                text: "Hello, World!",
-              },
-            ])
-            .then(() => {
-              document.getElementById("p1").innerHTML = JSON.stringify("message sent");
-            })
-            .catch((err) => {
-                document.getElementById("p1").innerHTML = JSON.stringify(err);
-            });
+          const idToken = liff.getIDToken();
+        //   console.log(idToken); // print raw idToken object
+
+          document.getElementById("p1").innerHTML = JSON.stringify(idToken);
+
+        //   liff
+        //     .getContext()
+        //     .then((profile) => {
+        //       document.getElementById("p1").innerHTML = JSON.stringify(profile);
+        //     })
+        //     .catch((err) => {
+        //       document.getElementById("p1").innerHTML = JSON.stringify(err);
+        //     });
+        //   liff
+        //     .sendMessages([
+        //       {
+        //         type: "text",
+        //         text: "Hello, World!",
+        //       },
+        //     ])
+        //     .then(() => {
+        //       document.getElementById("p1").innerHTML = JSON.stringify(
+        //         "message sent"
+        //       );
+        //     })
+        //     .catch((err) => {
+        //       document.getElementById("p1").innerHTML = JSON.stringify(err);
+        //     });
         })
         .catch((err) => {
           document.getElementById("p1").innerHTML = JSON.stringify(err);
